@@ -1,4 +1,4 @@
-# My favorite tea
+# My Favorite Teas
 
 My entry to the 2016 10K Apart event.
 
