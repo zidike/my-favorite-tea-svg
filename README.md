@@ -1,6 +1,6 @@
 # My favorite tea
 
-My entri to the 2016 10K Apart event.
+My entry to the 2016 10K Apart event.
 
 A single page (single file) website created with SVG.
 
