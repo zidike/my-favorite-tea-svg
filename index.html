@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>My Favorite Teas</title>
+  <meta charset="UTF-8">
+  <style type="text/css" media="screen">
+
+    body { background: #91a3b0; margin: 0; }
+    svg { display: block; position: absolute; top:0; left:0; width:100%; height:100%; background: #fae7b5; }
+
+	#tea_green_leaf, #tea_black_leaf, #tea_puerh_leaf, #green_tea_leaf_anchor { cursor: pointer; cursor: hand; }
+
+	#tea_green_leaf:hover { fill: #8ab72d; }
+	#tea_green_leaf_anchor:focus + #tea_green_description { fill: red; opacity: 1; }
+	#tea_green_leaf_anchor:focus + #tea_green_description #tea_green_description_text { fill: black; }
+	#tea_green_leaf_anchor:focus ~ #tea_green_cup_filler { fill: #76ac00; opacity: .5; }
+
+  	#tea_black_leaf:hover { fill: #8b8589; }
+	#tea_black_leaf_anchor:focus + #tea_black_description { fill: blue; opacity: 1; }
+	#tea_black_leaf_anchor:focus + #tea_black_description #tea_black_description_text { fill: black; }
+	#tea_black_leaf_anchor:focus ~ #tea_black_cup_filler { fill: #66410e; opacity: .6; }
+	
+	#tea_puerh_leaf:hover { fill: #c6831b; }
+	#tea_puerh_leaf_anchor:focus + #tea_puerh_description { fill: yellow; opacity: 1; }
+	#tea_puerh_leaf_anchor:focus + #tea_puerh_description #tea_puerh_description_text { fill: black; }
+	#tea_puerh_leaf_anchor:focus ~ #tea_puerh_cup_filler { fill: #a5492a; opacity: .5; }
+
+  </style>
+ </head>
+ <body>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-350 -250 700 500" aria-labelledby="svg_title" aria-describedby="svg_desc">
+<title id="svg_title">My favorite teas</title>
+<desc id="svg_desc">A short description about my favorite kinds of tea; some necessary tools in the background.</desc>
+
+<defs>
+
+<!-- Tea container parts -->
+	<!-- Tea container metal base -->
+	<g id="tea_container_body_base">
+		<path fill="#999999" stroke="black" stroke-width="0.25" d="M-275,75c20 10, 80 10,100 0q5 -2.5,0 -5c-20 10,-80 10,-100 0q-5 2.5,0 5z"/>
+		<path fill="#333333" stroke="black" stroke-width="0.25" mask="url(#mask_tea_container_metal_parts)" d="M-275,75c20 10, 80 10,100 0q5 -2.5,0 -5c-20 10,-80 10,-100 0q-5 2.5,0 5z"/>
+	</g>
+
+	<!-- Tea container body -->
+	<g id="tea_container_body">
+		<path fill="inherit" stroke="black" stroke-width="0.25" d="M-275,70c20 10, 80 10,100 0v-200c-15 8, -85 8, -100 0v200z"/>
+	</g>
+
+	<!-- Tea container body (shaded color) -->
+	<g id="tea_container_body_shaded">
+		<path fill="inherit" mask="url(#mask_tea_container_body)" stroke="black" stroke-width="0.25" d="M-275,70c20 10, 80 10,100 0v-200c-15 8, -85 8, -100 0v200z"/>
+	</g>
+
+	<!-- Tea container labels -->
+	<g id="tea_container_label_back">
+		<path fill="#f0e297" stroke="#e9d66b" stroke-width="0.25" d="M-225 25 c 10 2.5 40 5 50 -5 v -110 c -10 5 -40 8 -50 5 v 110"/>
+		<path fill="#e9d66b" stroke="#e9d66b" stroke-width="0.25" mask="url(#mask_back_tea_container_label)" d="M-225 25 c 10 2.5 40 5 50 -5 v -110 c -10 5 -40 8 -50 5 v 110"/>
+		<text x="-200, -200, -200, -200" y="-85, -65, -45, -25" writing-mode="tb" rotate="-90" fill="#a52a2a" font-size="1.5em" transform="skewY(-7.5)" style="font-family: ‘Courier New’, Courier, monospace; font-weight: bold;">TEAS</text>
+	</g>
+
+	<g id="tea_container_label_front">
+		<path fill="#f0e297" stroke="#e9d66b" stroke-width="0.25" d="M-260 25 c 10 7 60 7 70 0 v -100 c -10 4 -60 4 -70 0 v 100"/>
+		<path fill="#e9d66b" stroke="#e9d66b" stroke-width="0.25" mask="url(#mask_front_tea_container_label)" d="M-260 25 c 10 7 60 7 70 0 v -100 c -10 4 -60 4 -70 0 v 100"/>
+		<text x="-250, -230" y="-50, -30" writing-mode="tb" rotate="-90" fill="#a52a2a" font-size="1.5em" style="font-family: ‘Courier New’, Courier, monospace; font-weight: bold;">MY</text>
+		<text x="-210" y="-60, -49, -38, -27, -16, -5, 6, 17" writing-mode="tb" rotate="-90" fill="#5d8aa8" style="font-family: ‘Courier New’, Courier, monospace; font-weight: bold;">favorite</text>
+	</g>
+
+	<!-- Tea container metal cap -->
+	<g id="tea_container_cap">
+		<path fill="#999999" stroke="black" stroke-width="0.25" d="M-275,-130c15 8, 85 8,100 0q5 -2.5,2.5 -5c-20 10,-80 10,-105 0q-2.5 2.5,2.5 5z"/>	
+		<path fill="#333333" stroke="black" stroke-width="0.25" mask="url(#mask_tea_container_metal_parts)" d="M-275,-130c15 8, 85 8,100 0q5 -2.5,2.5 -5c-20 10,-80 10,-105 0q-2.5 2.5,2.5 5z"/>
+		<path fill="#999999" stroke="black" stroke-width="0.25" d="M-277.5,-135c20 10, 80 10, 105 0c0 -5,-10 -5,-10 -10c-12.5 6.5,-72.5 6.5,-85 0c0 5,-10 5,-10 10z"/>
+		<path fill="#333333" stroke="black" stroke-width="0.25" mask="url(#mask_tea_container_metal_parts)" d="M-277.5,-135c20 10, 80 10, 105 0c0 -5,-10 -5,-10 -10c-12.5 6.5,-72.5 6.5,-85 0c0 5,-10 5,-10 10z"/>
+		<path fill="#999999" stroke="black" stroke-width="0.25" d="M-267.5,-145c12.5 6.5, 72.5 6.5, 85 0c0 -3,-5 -3,-5 -4c-15 5,-60 5,-75 0c 0 1, -5 1, -5 4z"/>
+		<path fill="#333333" stroke="black" stroke-width="0.25" mask="url(#mask_tea_container_metal_parts)" d="M-267.5,-145c12.5 6.5, 72.5 6.5, 85 0c0 -3,-5 -3,-5 -4c-15 5,-60 5,-75 0c 0 1, -5 1, -5 4z"/>
+		<path fill="#999999" stroke="black" stroke-width="0.25" d="M-262.5,-149.25c15 5, 60 5, 75 0c-5 -12.5, -70 -12.5, -75 0z"/>
+		<path fill="#333333" stroke="black" stroke-width="0.25" mask="url(#mask_tea_container_metal_parts)" d="M-262.5,-149.25c15 5, 60 5, 75 0c-5 -12.5, -70 -12.5, -75 0z"/>
+	</g>
+
+	<!-- Tea containers' shadow -->
+	<g id="tea_container_shadow">
+		<path fill="#333333" fill-opacity=".3" stroke="none" d="M-205 45 c 20 50 140 40 102 -2" />
+		<path fill="#8b5913" fill-opacity=".4" mask="url(#mask_tea_container_shadow)" stroke="none" d="M-205 45 c 20 50 140 40 102 -2" />
+	</g>
+
+<!-- Base for the menu and description panes -->
+
+	<!-- Tea menu -->
+	<g id="tea_selection_menu">
+		<line stroke="#800000" stroke-width="2" x1="-120" x2="315" y1="-235" y2="-235" />
+		<line stroke="#800000" stroke-width="2" x1="-105" x2="315" y1="-230" y2="-230" />
+		<line stroke="#800000" stroke-width="2" x1="-90" x2="315" y1="-160" y2="-160" />
+		<line stroke="#800000" stroke-width="2" x1="-90" x2="330" y1="-155" y2="-155" />
+		<line stroke="#800000" stroke-width="2" x1="-90" x2="-90" y1="-235" y2="-150" />
+		<line stroke="#800000" stroke-width="2" x1="-85" x2="-85" y1="-235" y2="-140" />
+		<line stroke="#800000" stroke-width="2" x1="305" x2="305" y1="-245" y2="-75" />
+		<line stroke="#800000" stroke-width="2" x1="310" x2="310" y1="-250" y2="-80" />
+
+		<line stroke="#800000" stroke-width="2" x1="45" x2="45" y1="-235" y2="-230" />
+		<line stroke="#800000" stroke-width="2" x1="45" x2="45" y1="-160" y2="-155" />
+		<line stroke="#800000" stroke-width="2" x1="175" x2="175" y1="-235" y2="-230" />
+		<line stroke="#800000" stroke-width="2" x1="175" x2="175" y1="-175" y2="-145" />
+		<line stroke="#800000" stroke-width="2" x1="295" x2="315" y1="-85" y2="-85" />
+		<line stroke="#800000" stroke-width="2" x1="300" x2="315" y1="-80" y2="-80" />
+
+		<path stroke="#800000" stroke-width=".25" fill="#e9d66b" d="M -85 -230 c 15 10 115 10 130 0 c -10 15 -10 55 0 70 c -15 -10 -115 -10 -130 0 c 10 -15 10 -55 0 -70 "/>
+		<path stroke="#800000" stroke-width=".25" fill="#e9d66b" d="M 45 -230 c 15 10 115 10 130 0 c -10 15 -10 55 0 70 c -15 -10 -115 -10 -130 0 c 10 -15 10 -55 0 -70 "/>
+		<path stroke="#800000" stroke-width=".25" fill="#e9d66b" d="M 175 -230 c 15 10 115 10 130 0 c -10 15 -10 55 0 70 c -15 -10 -115 -10 -130 0 c 10 -15 10 -55 0 -70 "/>
+
+		<path stroke="#800000" stroke-width=".25" fill="#fffdd0" d="M 175 -155 c 15 10 115 10 130 0 c -10 15 -10 55 0 70 c -15 -10 -115 -10 -130 -70 "/>
+	</g>
+
+	<!-- Tea description pane -->
+	<g id="tea_description" transform="translate(0, -25)">
+		<line stroke="#800000" stroke-width="2" x1="-265" x2="45" y1="50" y2="50" />
+		<line stroke="#800000" stroke-width="2" x1="-265" x2="35" y1="60" y2="60" />
+		<line stroke="#800000" stroke-width="2" x1="-285" x2="25" y1="200" y2="200" />
+		<line stroke="#800000" stroke-width="2" x1="-275" x2="25" y1="210" y2="210" />
+		<line stroke="#800000" stroke-width="2" x1="-240" x2="-240" y1="40" y2="220" />
+		<line stroke="#800000" stroke-width="2" x1="-250" x2="-250" y1="40" y2="220" />
+		<line stroke="#800000" stroke-width="2" x1="0" x2="0" y1="40" y2="220" />
+		<line stroke="#800000" stroke-width="2" x1="10" x2="10" y1="40" y2="220" />
+		<path stroke="#800000" stroke-width=".25" fill="#e9d66b" d="M-240 60 c 15 10 235 10 240 0 c -10 15 -10 135 0 140 c -15 -10 -235 -10 -240 0 c 10 -15 10 -135 0 -140 "/>
+	</g>
+
+<!-- Sign text path -->
+	<path id="sign_text_path" d="M 110 172.5 c 30 -5 60 -15 100 -35" />
+
+<!-- Gradients -->
+
+	<linearGradient id="gradient_1">
+		<stop offset="0" stop-color="white" stop-opacity="0" />
+      		<stop offset="1" stop-color="white" stop-opacity="1" />
+    	</linearGradient>
+    
+	<linearGradient id="gradient_2">
+		<stop offset="0.25" stop-color="white" stop-opacity="0" />
+		<stop offset="0.5" stop-color="white" stop-opacity="0.5" />
+		<stop offset="1" stop-color="white" stop-opacity="1" />
+	</linearGradient>
+	
+	<linearGradient id="gradient_3" x1="0" x2="1" y1="0" y2="1">
+		<stop offset="0.4" stop-color="white" stop-opacity="0" />
+		<stop offset="0.7" stop-color="white" stop-opacity="0.5" />
+		<stop offset="1" stop-color="white" stop-opacity="1" />
+    	</linearGradient>
+    
+	<linearGradient id="gradient_4" x1="0" x2="1" y1="0" y2="1">
+		<stop offset="0.5" stop-color="white" stop-opacity="0" />
+		<stop offset="0.6" stop-color="white" stop-opacity="0.5" />
+		<stop offset="1" stop-color="white" stop-opacity="1" />
+	</linearGradient>
+	<linearGradient id="gradient_5" x1="0" x2="1" y1="0" y2="0">
+		<stop offset="0" stop-color="white" stop-opacity="0" />
+		<stop offset="0.2" stop-color="white" stop-opacity="0.75" />
+		<stop offset="0.3" stop-color="white" stop-opacity="0.25" />
+		<stop offset="0.65" stop-color="white" stop-opacity="0.75" />
+		<stop offset="0.8" stop-color="white" stop-opacity="0.75" />
+		<stop offset="1" stop-color="white" stop-opacity="0" />
+	</linearGradient>
+
+	<linearGradient id="gradient_6" x1="0" x2="1" y1="0" y2="1">
+		<stop offset="0.3" stop-color="white" stop-opacity="0" />
+		<stop offset="0.6" stop-color="white" stop-opacity="0.5" />
+		<stop offset="1" stop-color="white" stop-opacity="1" />
+	</linearGradient>
+
+	<linearGradient id="gradient_7" x1="0" x2="1" y1="0" y2="1">
+		<stop offset="0" stop-color="white" stop-opacity="0.75" />
+		<stop offset="0.3" stop-color="white" stop-opacity="0.5" />
+		<stop offset="0.6" stop-color="white" stop-opacity="0.5" />
+		<stop offset="1" stop-color="white" stop-opacity="1" />
+	</linearGradient>
+
+	<radialGradient id="gradient_8" cx="60%" cy="50%" r="0.5">
+		<stop offset="0%" stop-color="white" stop-opacity="0"/>
+		<stop offset="100%" stop-color="white" stop-opacity="1"/>
+	</radialGradient>
+	
+	<radialGradient id="gradient_9" cx="40%" cy="30%" r="0.85">
+		<stop offset="0%" stop-color="white" stop-opacity="0"/>
+		<stop offset="100%" stop-color="white" stop-opacity="1"/>
+	</radialGradient>
+
+	<radialGradient id="gradient_10" cx="40%" cy="40%" r="1">
+		<stop offset="0%" stop-color="white" stop-opacity="0"/>
+		<stop offset="100%" stop-color="white" stop-opacity="1"/>
+	</radialGradient>
+
+	<radialGradient id="gradient_11" cx="52.5%" cy="52.5%" r=".5">
+		<stop offset="0%" stop-color="white" stop-opacity=".75"/>
+		<stop offset="100%" stop-color="white" stop-opacity="0"/>
+	</radialGradient>
+
+	<radialGradient id="gradient_12" cx="50%" cy="50%" r=".5">
+		<stop offset="0%" stop-color="white" stop-opacity="0"/>
+		<stop offset="15%" stop-color="white" stop-opacity="0.8"/>
+		<stop offset="30%" stop-color="white" stop-opacity="0"/>
+		<stop offset="45%" stop-color="white" stop-opacity="0.8"/>
+		<stop offset="60%" stop-color="white" stop-opacity="0"/>
+		<stop offset="75%" stop-color="white" stop-opacity="0.8"/>
+		<stop offset="90%" stop-color="white" stop-opacity="0"/>
+		<stop offset="100%" stop-color="white" stop-opacity="0"/>
+	</radialGradient>
+
+	<linearGradient id="gradient_13">
+		<stop offset="0" stop-color="white" stop-opacity="1" />
+		<stop offset="1" stop-color="white" stop-opacity="0" />
+	</linearGradient>
+
+	<radialGradient id="gradient_14" cx="70%" cy="55%" r="1">
+		<stop offset="0%" stop-color="white" stop-opacity="0"/>
+		<stop offset="100%" stop-color="white" stop-opacity="1"/>
+	</radialGradient>
+
+<!-- Masks for different objects -->
+	<mask id="mask_tea_container_body">
+		<path fill="url(#gradient_1)" d="M-275,70c20 10, 80 10,100 0v-200c-15 8, -85 8, -100 0v200z"/>
+	</mask>
+
+	<mask id="mask_front_tea_container_label">
+		<path fill="url(#gradient_1)" d="M-260 25 c 10 7 60 7 70 0 v -100 c -10 4 -60 4 -70 0 v 100"/>
+	</mask>
+
+	<mask id="mask_back_tea_container_label">
+		<path fill="url(#gradient_1)" d="M-225 25 c 10 2.5 40 5 50 -5 v -110 c -10 5 -40 8 -50 5 v 110"/>
+	</mask>
+
+	<mask id="mask_tea_container_metal_parts">
+		<path fill="url(#gradient_1)" d="M-275,75c20 10, 80 10,100 0q5 -2.5,0 -5c-20 10,-80 10,-100 0q-5 2.5,0 5z"/>
+		<path fill="url(#gradient_1)" d="M-275,-130c15 8, 85 8,100 0q5 -2.5,2.5 -5c-20 10,-80 10,-105 0q-2.5 2.5,2.5 5z"/>
+		<path fill="url(#gradient_1)" d="M-277.5,-135c20 10, 80 10, 105 0c0 -5,-10 -5,-10 -10c-12.5 6.5,-72.5 6.5,-85 0c0 5,-10 5,-10 10z"/>
+		<path fill="url(#gradient_1)" d="M-267.5,-145c12.5 6.5, 72.5 6.5, 85 0c0 -3,-5 -3,-5 -4c-15 5,-60 5,-75 0c 0 1, -5 1, -5 4z"/>
+		<path fill="url(#gradient_1)" d="M-262.5,-149.25c15 5, 60 5, 75 0c-5 -12.5, -70 -12.5, -75 0z"/>
+	</mask>
+
+	<mask id="mask_tea_cup">
+		<path fill="url(#gradient_2)" d="M25 170 v 2 c 10 7, 40 7, 50 0 v -2"/>
+		<path fill="url(#gradient_2)" d="M-25 90 c -10 20 , 5 85 , 75 82.5 c 70 0 , 85 -62.5 , 75 -82.5"/>
+	</mask>
+
+	<mask id="mask_tea_cup_inner">	
+		<path fill="url(#gradient_3)" d="M-20 90 a 70 23.5 0 0 0 140 0 a 70 23 0 0 0 -140 0"/>
+	</mask>
+
+	<mask id="mask_tea_cup_edge">
+		<path fill="url(#gradient_4)" d="M-25 90 a 75 25 0 0 0 150 0 a 75 25 0 0 0 -150 0"/>
+	</mask>
+
+	<mask id="mask_tea_pot_side">
+		<path fill="url(#gradient_5)" d="M -17 2 c -15 25 -15 45 0 65 c 15 25 135 25 150 0 c 23 -25 7 -55 5 -60 c -30 25 -120 25 -150 0"/>
+	</mask>
+
+	<mask id="mask_tea_pot_spout">
+		<path fill="url(#gradient_6)" d="M 8 40 c 0 -10 0 -20 -10 -25 c -5 5 -10 5 -55 5 l -12 18 c 7 0 20 5 25 10 s 20 5 47 30.7 c 2 -5 4 -15 4.5 -25"/>
+	</mask>
+
+	<mask id="mask_tea_pot_handle">
+		<path fill="url(#gradient_7)" d="M 100 50 a 15 30 10 0 0 30 0 a 15 25 10 0 0 -30 0"/>
+		<path fill="url(#gradient_7)" d="M 107 73 c 5 -5 10 -10 15 -7 s -10 -15 -21 -15"/>
+	</mask>
+
+	<mask id="mask_tea_pot_handle_long_part">
+		<path fill="url(#gradient_8)" d="M 117.5 29.5 c 5 8 10 8 25 5 s 5 5 25 7.5 c 5 5 5 10 -10 15 s -10 -10 -41 2 c -5 -4 -10 -4 -15.85 -7.5 "/>
+	</mask>
+
+	<mask id="mask_tea_pot_top_button">
+		<path fill="url(#gradient_9)" d="M 48 -25 a 10 11.5 0 0 0 20 0 a 10 11.5 0 0 0 -20 0"/>
+	</mask>
+
+	<mask id="mask_tea_pot_top_decoration">
+		<path fill="url(#gradient_10)"  d="M 57.5 0.5 c 45 0 45 -25 0 -27 c -45 5 -45 27 0 27"/>
+		<path fill="url(#gradient_10)"  d="M 57.5 -4.5 c 30 0 30 -20 0 -20 c -30 5 -30 20 0 20"/>
+		<path fill="url(#gradient_10)"  d="M 57.5 -11 c 15 0 15 -10 0 -15 c -15 5 -15 15 0 15"/>
+	</mask>
+
+	<mask id="mask_tea_pot_top">
+		<path fill="url(#gradient_11)" d="M -8 -10 a 66 22 0 0 0 134 0 a 66 18 0 0 0 -134 0"/>
+	</mask>
+
+	<mask id="mask_tea_tray_base">
+		<path fill="url(#gradient_12)" d="M-240 25 a 240 140 0 0 0 480 0 a 240 70 0 0 0 -480 0"/>
+	</mask>
+
+	<mask id="mask_tea_tray_front">
+		<path fill="url(#gradient_1)" d="M-300 25 a 300 160 0 0 0 600 0 v -15 a 300 155 0 0 1 -600 0 v 15"/>
+	</mask>
+
+	<mask id="mask_tea_tray_back">
+		<path fill="url(#gradient_13)" d="M-300 25 a 300 80 0 0 1 600 0 v -10 a 300 82.5 0 0 0 -600 0 v 10"/>
+	</mask>
+
+	<mask id="mask_tea_container_shadow">
+		<path fill="url(#gradient_14)" d="M-205 45 c 20 50 140 40 102 -2"/>
+	</mask>
+
+	<mask id="mask_tea_pot_handle_shade">
+		<path fill="url(#gradient_14)" d="M123 120 c 20 20 40 30 60 10 c -20 -20 -20 -20 -41.5 -34 c 4 2 0 15 -11.5 20" />
+	</mask>
+
+</defs>
+
+<!-- Tea tray (base and back) -->
+<g role="presentation">
+	<path fill="#8b5913" d="M -300 25 a 300 160 0 0 0 600 0 a 300 80 0 0 0 -600 0"/>
+	<path fill="#8b5913" d="M -240 25 a 240 140 0 0 0 480 0 a 240 70 0 0 0 -480 0"/>
+	<path fill="#5e3c0d" mask="url(#mask_tea_tray_base)" d="M -240 25 a 240 140 0 0 0 480 0 a 240 70 0 0 0 -480 0"/>
+
+	<path fill="#5e3c0d" d="M-300 25 a 300 80 0 0 1 600 0 v -10 a 300 82.5 0 0 0 -600 0 v 10"/>
+	<path fill="#322007" mask="url(#mask_tea_tray_back)" d="M-300 25 a 300 80 0 0 1 600 0 v -10 a 300 82.5 0 0 0 -600 0 v 10"/>
+	<path fill="#5e3c0d" d="M-300 15 a 300 82.5 0 0 1 600 0 h 4 a 303 86 0 0 0 -608 0 h 4"/>
+</g>
+<!-- Tea containers-->
+	<!-- Tea container in the back -->
+	<g role="presentation">
+		<use x="0" y="0" xlink:href="#tea_container_shadow"/>
+		<use x="70" y="-30" xlink:href="#tea_container_body_base"/>
+		<use x="70" y="-30" fill="#8db600" xlink:href="#tea_container_body"/>
+		<use x="70" y="-30" fill="#556b2f" xlink:href="#tea_container_body_shaded"/>
+		<use x="70" y="-30" xlink:href="#tea_container_cap"/>
+		<use x="70" y="-30" xlink:href="#tea_container_label_back"/>
+	</g>
+
+	<!-- Tea container in the front -->
+	<g role="presentation">
+		<use x="-60" y="30" xlink:href="#tea_container_shadow"/>
+		<use x="15" y="5" xlink:href="#tea_container_body_base"/>
+		<use x="15" y="5" fill="#7c2020" xlink:href="#tea_container_body"/>
+		<use x="15" y="5" fill="#3f1010" xlink:href="#tea_container_body_shaded"/>
+		<use x="15" y="5" xlink:href="#tea_container_cap"/>
+		<use x="15" y="5" xlink:href="#tea_container_label_front"/>
+	</g>
+
+<!-- Tea pot -->
+<g class="tea-pot" id="teapot" transform="translate(95,-50)" role="presentation">
+	<!-- Teapot body -->
+	<use x="210" y="70" xlink:href="#tea_container_shadow" transform="rotate(-15)"/>
+
+	<path fill="#333333" stroke="none" fill-opacity=".3" d="M123 120 c 20 20 40 30 60 10 c -20 -20 -20 -20 -41.5 -34 c 4 2 0 15 -11.5 20" transform="translate(1.5 -2)"/>
+	<path fill="#8b5913" stroke="none" fill-opacity=".4" mask="url(#mask_tea_pot_handle_shade)" d="M123 120 c 20 20 40 30 60 10 c -20 -20 -20 -20 -41.5 -34 c 4 2 0 15 -11.5 20" transform="translate(1.5 -2)"/>
+
+	<path fill="#ab8044" stroke="#696969" stroke-width=".75" d="M -14.5 -10 c -2 0 -1 10 -1 10 c -15 25 -15 55 0 80 c 15 25 135 25 150 0 c 15 -25 15 -55 0 -80 c 0 -5 1 -10 -1 -10"/>
+	<path fill="#5f9f5f" stroke="none" d="M -17 2 c -15 25 -15 45 0 65 c 15 25 135 25 150 0 c 23 -25 7 -55 5 -60 c -30 25 -120 25 -150 0"/>
+	<path fill="#4b5320" stroke="none" mask="url(#mask_tea_pot_side)" d="M -17 2 c -15 25 -15 45 0 65 c 15 25 135 25 150 0 c 23 -25 7 -55 5 -60 c -30 25 -120 25 -150 0"/>
+
+	<path fill="none" stroke="#696969" stroke-width=".5" stroke-opacity=".5" d="M 135 0 c -30 30 -120 25 -150 0"/>
+	<path fill="#ab8044" stroke="#696969" stroke-width=".75" d="M -3 89 c 20 18, 106 18, 126 0"/>
+	
+	<!-- Teapot body decoration -->
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M 10 40 c 15 10 75 12 85 3"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M 30 55 c 5 3 45 8 65 -2"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M 8 72 c 5 3 45 11 65 7"/>
+
+	<!-- Teapot top -->
+	<path fill="#b98d4f" stroke="#696969" stroke-opacity=".75" stroke-width=".5"  d="M -15 -10 a 75 25 0 0 0 150 0 a 75 25 0 0 0 -150 0"/>
+	<path fill="none" stroke="#fff" stroke-opacity=".25"  d="M -13 -10 a 73.5 24 0 0 0 147 0 a 73.5 24 0 0 0 -147 0"/>
+	<path fill="#ab8044" stroke="#696969" stroke-opacity=".75" stroke-width=".5"  d="M -10 -10 a 70 23.5 0 0 0 140 0 a 70 23 0 0 0 -140 0"/>
+	<path fill="#b98d4f" stroke="#555555" stroke-opacity=".75" stroke-width=".5" d="M -8 -10 a 66 22 0 0 0 134 0 a 66 18 0 0 0 -134 0"/>
+	<path fill="#47250b" mask="url(#mask_tea_pot_top)" stroke="none" d="M -8 -10 a 66 22 0 0 0 134 0 a 66 18 0 0 0 -134 0"/>
+
+	<!-- Teapot top decoration -->
+	<path fill="#5f9f5f" fill-opacity="0.9" stroke="#696969" stroke-width="2.5" stroke-opacity=".75"  d="M 57.5 0.5 c 45 0 45 -25 0 -27 c -45 5 -45 27 0 27"/>
+	<path fill="#4b5320" stroke="none" mask="url(#mask_tea_pot_top_decoration)" d="M 57.5 0.5 c 45 0 45 -25 0 -27 c -45 5 -45 27 0 27"/>
+	<path fill="#5f9f5f" fill-opacity="0.9" stroke="#696969" stroke-width="2.5" stroke-opacity=".75"  d="M 57.5 -4.5 c 30 0 30 -20 0 -20 c -30 5 -30 20 0 20"/>
+	<path fill="#4b5320" stroke="none" mask="url(#mask_tea_pot_top_decoration)" d="M 57.5 -4.5 c 30 0 30 -20 0 -20 c -30 5 -30 20 0 20"/>
+	<path fill="#5f9f5f" fill-opacity="0.9" stroke="#696969" stroke-width="2.5" stroke-opacity=".75"  d="M 57.5 -11 c 15 0 15 -10 0 -15 c -15 5 -15 15 0 15"/>
+	<path fill="#4b5320" stroke="none" mask="url(#mask_tea_pot_top_decoration)" d="M 57.5 -11 c 15 0 15 -10 0 -15 c -15 5 -15 15 0 15"/>
+	<path fill="#5f9f5f" stroke="#696969" stroke-width=".5" stroke-opacity=".75" d="M 48 -25 a 10 11.5 0 0 0 20 0 a 10 11.5 0 0 0 -20 0"/>
+	<path fill="#4b5320" stroke="none" mask="url(#mask_tea_pot_top_button)" d="M 48 -25 a 10 11.5 0 0 0 20 0 a 10 11.5 0 0 0 -20 0"/>
+
+	<!-- Handle for the teapot -->
+	<path fill="#4b5320" fill-opacity=".25" stroke="#4b5320" stroke-opacity=".5" d="M 97 50 a 16.5 30 10 0 0 33 0 a 16.5 30 10 0 0 -33 0"/>
+	<path fill="#5f9f5f" stroke="#4b5320" d="M 100 50 a 15 30 10 0 0 30 0 a 15 25 10 0 0 -30 0"/>
+	<path fill="#4b5320" stroke="#4b5320" mask="url(#mask_tea_pot_handle)" d="M 100 50 a 15 30 10 0 0 30 0 a 15 25 10 0 0 -30 0"/>
+	<path fill="#ab8044" stroke="#696969" d="M 117.5 29.5 c 5 8 10 8 25 5 s 45 5 50 7.5 l -10 45 c -15 0 -30 -5 -50 -15 s -10 -15 -32 -19.5"/>
+	<path fill="#5f9f5f" stroke="none" d="M 117.5 29.5 c 5 8 10 8 25 5 s 5 5 25 7.5 c 5 5 5 10 -10 15 s -10 -10 -41 2 c -5 -4 -10 -4 -15.85 -7.5 "/>
+	<path fill="#5d763d" stroke="none" mask="url(#mask_tea_pot_handle_long_part)" d="M 117.5 29.5 c 5 8 10 8 25 5 s 5 5 25 7.5 c 5 5 5 10 -10 15 s -10 -10 -41 2 c -5 -4 -10 -4 -15.85 -7.5 "/>
+	<path fill="#5f9f5f" stroke="none" d="M 107 73 c 5 -5 10 -10 15 -7 s -10 -15 -21 -15"/>
+	<path fill="#5d763d" stroke="none" d="M 107 73 c 5 -5 10 -10 15 -7 s -10 -15 -21 -15"/>
+	<path fill="#ab8044" stroke="#696969" d="M 171 61.5 a 16.5 27 5 0 0 33 0 a 16.5 22 5 0 0 -33 0"/>
+	<path fill="#47250b" stroke="#696969" d="M 175 61.5 a 13 24 5 0 0 26 0 a 13 19 5 0 0 -26 0"/>
+	<path fill="#1b0e04" stroke="none" d="M 176 61.5 c 0 -10 5 -20 18 -15 c -10 10 -10 20 -12.5 35 c -2 -5 -5 -10 -5 -15"/>
+	
+	<!-- Teapot spout-->
+	<path fill="#5f9f5f" stroke="#696969" stroke-width=".75" d="M -25 40 a 16.5 50 -5 0 0 33 0 a 16.5 30 10 0 0 -33 0"/>	
+	<path fill="#ab8044" stroke="#696969" stroke-width=".75" d="M 8 40 c 0 -10 0 -20 -10 -25 c -5 5 -10 5 -55 5 l -12 18 c 7 0 20 5 25 10 s 20 35 38.5 37.75 c 10 0 14 -20 13.5 -46"/>
+	<path fill="#5f9f5f" stroke="none" d="M 8 40 c 0 -10 0 -20 -10 -25 c -5 5 -10 5 -55 5 l -12 18 c 7 0 20 5 25 10 s 20 5 47 30.7 c 2 -5 4 -15 4.5 -25"/>
+	<path fill="#4b5320" stroke="none" mask="url(#mask_tea_pot_spout)" d="M 8 40 c 0 -10 0 -20 -10 -25 c -5 5 -10 5 -55 5 l -12 18 c 7 0 20 5 25 10 s 20 5 47 30.7 c 2 -5 4 -15 4.5 -25"/>
+	<path fill="#5f9f5f" stroke="#696969" stroke-width=".75" d="M -70 38 c 10 0 20 -10 14 -17.5 c -8 -5 -20 15 -14 17.5"/>
+	<path fill="#47250b" stroke="#696969" stroke-width=".75" d="M -69 36 c 9 0 16 -10 10 -14 c -5 0 -10 10 -10 14"/>
+	<path fill="#1b0e04" stroke="none" d="M -69 36 c 9 -1 14 -10 10 -13 c -3 0 1 5 -10 13"/>
+</g>
+
+<g id="teacup" transform="translate(50 -20)" role="presentation">
+	<!-- Cup body -->
+	<path fill="#efd47c" stroke="#d39e4a" d="M25 170 v 2 c 10 7, 40 7, 50 0 v -2"/>
+	<path fill="#ed872d" stroke="#d39e4a" mask="url(#mask_tea_cup)" d="M25 170 v 2 c 10 7, 40 7, 50 0 v -2"/>		
+	<path fill="#efd47c" stroke="#d39e4a" d="M-25 90 c -10 20 , 5 85 , 75 82.5 c 70 0 , 85 -62.5 , 75 -82.5"/>
+	<path fill="#ed872d" stroke="#d39e4a" mask="url(#mask_tea_cup)" d="M-25 90 c -10 20 , 5 85 , 75 82.5 c 70 0 , 85 -62.5 , 75 -82.5"/>
+	<path fill="#438427" fill-opacity=".7" stroke="none" d="M-25 90 c -7.5 20 -2.5 60 40 62.5 c 15 -5 20 -15 25 -25 c 0 -5 10 -5 11 -15"/>
+	<path fill="#efd47c" stroke="#d39e4a" d="M-25 90 a 75 25 0 0 0 150 0 a 75 25 0 0 0 -150 0"/>
+	<path fill="#ed872d" stroke="#d39e4a" mask="url(#mask_tea_cup_edge)" d="M-25 90 a 75 25 0 0 0 150 0 a 75 25 0 0 0 -150 0"/>
+	<path fill="#efd47c" stroke="#d39e4a" d="M-20 90 a 70 23.5 0 0 0 140 0 a 70 23 0 0 0 -140 0"/>
+	<path fill="#ed872d" stroke="#d39e4a" mask="url(#mask_tea_cup_inner)" d="M-20 90 a 70 23.5 0 0 0 140 0 a 70 23 0 0 0 -140 0"/>
+	<path fill="#438427" fill-opacity="0.6" stroke="none" d="M-20 90 c 0 10 20 20 40 21 c 0 -10 20 -30 30 -30 c 20 0 20 -10 15 -13 c -10 -1 -77.5 -4 -85 22"/>
+	<path fill="#438427" fill-opacity=".6" stroke="#438427" stroke-opacity=".4" d="M-25 90 c 2 19 40 24 74.5 25.5 q 1 -1 -1 -2 c -30 -1 -65 -5 -68 -24 c 0 -10 30 -25 84 -22 q 1 -1 -1 -2 c -20 -3 -88 2 -88 25"/>
+
+	<!-- Cup decoration lines outside -->
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M-27 115 c 10 20 60 30 90 27.5 c 20 0 35 -5 47.5 -12.5 c 7.5 -5 15 -10 17.5 -25" />
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M 20 150 c 10 5 60 15 100 -15"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M 35 165 c 10 1 45 5 70 -12.5"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M -27.5 105 c 10 12.5 20 17.5 32.5 21"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M -10 150 c 10 5 20 8 32.5 10"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".4" d="M 30 120 c 20 5 50 5 70 -5"/>
+
+	<!-- Cup decoration lines inside -->
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".25" d="M -18 95 c 20 -15 50 -17 70 -16 c 10 0 20 1 30 3.5"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".25" d="M 50 85 c 20 0 50 2.5 64 15"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".25" d="M 0 106 c 20 -10 70 -12.5 95 0"/>
+	<path fill="none" stroke="#3d3c3b" stroke-opacity=".25" d="M 15 110 c 20 -10 50 -10 66 1"/>
+</g>
+
+<!-- Tea tray front-->
+<g role="presentation">
+	<path fill="#8b5913" d="M-300 25 a 300 160 0 0 0 600 0 v -15 a 300 155 0 0 1 -600 0 v 15"/>
+	<path fill="#322007" mask="url(#mask_tea_tray_front)" d="M-300 25 a 300 160 0 0 0 600 0 v -15 a 300 155 0 0 1 -600 0 v 15"/>
+	<path fill="#5e3c0d" d="M-300 15 a 300 148 0 0 0 600 0 h 4 a 300 155 0 0 1 -608 0 h 4"/>
+</g>
+
+<!-- Tea descriptions and selection menu-->
+
+	<!-- Menu button and description for green tea -->
+	<g id="tea_menu" role="list" aria-label="The tea selection menubar.">
+		<use id="tea_menu_backdrop" xlink:href="#tea_selection_menu" />
+		<text style="font-size: 0.6em;">
+			<tspan x="255" y="-130" text-anchor="middle">Click the 
+				<tspan fill="blue">leaves</tspan> 
+			</tspan>
+			<tspan x="255" y="-120" text-anchor="middle">to see a brief</tspan>
+			<tspan x="255" y="-110" text-anchor="middle">description!</tspan>
+		</text>
+
+		<g id="tea_green" role="listitem">
+			<a id="tea_green_leaf_anchor" xlink:href="#green" role="link" tabindex="0">
+				<g id="tea_green_leaf" fill="#6b8e23" stroke="#007700" transform="scale(1.5 1.5) translate(35 12.5)" >	
+					<path stroke="inherit" fill="inherit" d="M -75 -125 c 10 -10 20 0 30 -5 s 20 -15 25 -15 c -25 -15 -45 -15 -55 20" />
+					<path stroke="black" stroke-width="0.5" stroke-opacity=".25" fill="none" d="M -75 -125 c 10 -20 35 -25 55 -20" />
+				</g>
+			</a>
+			<g id="tea_green_description" fill="none" opacity="0" transform="translate(-25 25)">
+				<use x="0" y="0" xlink:href="#tea_description" fill="inherit" opacity="inherit"/>
+				<text id="tea_green_description_text" x="-225" y="75" style="font-size: 0.75em; font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;">
+					<tspan x="-120" y="60" text-anchor="middle">
+						<tspan fill="brown">Green tea </tspan> is
+					</tspan>
+					<tspan x="-120" y="75" fill="green" text-anchor="middle">one of the healthiest</tspan>
+					<tspan x="-120" y="90" text-anchor="middle"> beverages on the planet.</tspan>
+					<tspan x="-120" y="115" text-anchor="middle">It is loaded with</tspan>
+					<tspan x="-120" y="130" fill="green" text-anchor="middle">antioxidants and nutrients</tspan>
+					<tspan x="-120" y="145" text-anchor="middle">that have 
+						<tspan fill="green"> powerful effects </tspan>
+					</tspan>
+					<tspan x="-120" y="160" text-anchor="middle">on the body.</tspan>
+				</text>
+			</g>
+			<g id="tea_green_cup_filler" fill="none" opacity="none">
+				<path fill="inherit" d="M 33.5 74.5 a 66.5 18 0 0 0 133 0 a 66.5 18 0 0 0 -133 0"/>
+			</g>
+		</g>
+
+		<!-- Menu button and description for black tea -->
+		<g id="tea_black" role="listitem">
+			<a id="tea_black_leaf_anchor" xlink:href="#black" role="link" tabindex="0">
+				<g id="tea_black_leaf" fill="#645f63" stroke="#333333" transform="scale(1.5 1.5) translate(122.5 12.5)" >	
+					<path stroke="inherit" fill="inherit" d="M -75 -125 c 10 -10 20 0 30 -5 s 20 -15 25 -15 c -25 -15 -45 -15 -55 20" />
+					<path stroke="black" stroke-width="0.5" stroke-opacity=".25" fill="none" d="M -75 -125 c 10 -20 35 -25 55 -20" />
+				</g>				
+			</a>
+			<g id="tea_black_description" fill="none" opacity="0" transform="translate(-25 25)">
+				<use x="0" y="0" xlink:href="#tea_description" fill="inherit" opacity="inherit"/>
+				<text id="tea_black_description_text" x="-245" y="75" style="font-size: 0.75em; font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;">
+					<tspan x="-120" y="65" text-anchor="middle">
+						<tspan fill="brown">Black tea </tspan> is a type of tea that is
+					</tspan>
+					<tspan x="-120" y="80" fill="green" text-anchor="middle">more oxidized than</tspan>
+					<tspan x="-120" y="95" text-anchor="middle">
+						<tspan fill="brown">oolong</tspan>, 
+						<tspan fill="brown"> green </tspan> and
+						<tspan fill="brown"> white teas</tspan>.
+					</tspan>
+					<tspan x="-120" y="125" text-anchor="middle">Black tea is generally</tspan>
+					<tspan  x="-120" y="140" fill="green" text-anchor="middle">stronger in flavor</tspan>
+					<tspan x="-120" y="155" text-anchor="middle">than the less oxidized teas.</tspan>
+				</text>
+			</g>
+			<g id="tea_black_cup_filler" fill="none" opacity="none">
+				<path fill="inherit" d="M 33.5 74.5 a 66.5 18 0 0 0 133 0 a 66.5 18 0 0 0 -133 0"/>
+			</g>
+		</g>
+
+		<!-- Menu button and description for puerh tea -->
+		<g id="tea_puerh" role="listitem">
+			<a id="tea_puerh_leaf_anchor" xlink:href="#puerh" role="link" tabindex="0">
+				<g id="tea_puerh_leaf" fill="#753a10" stroke="#996515" transform="scale(1.5 1.5) translate(210 12.5)" >	
+					<path stroke="inherit" fill="inherit" d="M -75 -125 c 10 -10 20 0 30 -5 s 20 -15 25 -15 c -25 -15 -45 -15 -55 20" />
+					<path stroke="black" stroke-width="0.5" stroke-opacity=".25" fill="none" d="M -75 -125 c 10 -20 35 -25 55 -20" />
+				</g>
+			</a>
+			<g id="tea_puerh_description" fill="none" opacity="0" transform="translate(-25 25)">
+				<use x="0" y="0" xlink:href="#tea_description" fill="inherit" opacity="inherit"/>
+				<text id="tea_puerh_description_text" x="-245" y="75" opacity="inherit" style="font-size: 0.75em; font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;">
+					<tspan x="-120" y="60" text-anchor="middle">
+						<tspan fill="brown">Pu-erh</tspan> or 
+						<tspan fill="brown">Pu'er</tspan> is
+					</tspan>
+					<tspan x="-120" y="75" fill="green" text-anchor="middle">a variety of fermented tea</tspan>
+					<tspan x="-120" y="90" text-anchor="middle">produced in Yunnan province, China,</tspan>
+					<tspan x="-120" y="105" text-anchor="middle">and named after 
+						<tspan fill="brown">Pu'er City.</tspan>
+					</tspan>
+					<tspan x="-120" y="130" text-anchor="middle">This type of tea is different from</tspan>
+					<tspan  x="-120" y="145" text-anchor="middle">what in the West is known as 
+						<tspan fill="brown">"black tea"</tspan>,
+					</tspan>
+					<tspan x="-120" y="160" text-anchor="middle">which in China is called 
+						<tspan fill="brown">"red tea".</tspan>
+					</tspan>
+				</text>
+			</g>
+			<g id="tea_puerh_cup_filler" fill="none" opacity="none">
+				<path fill="inherit" d="M 33.5 74.5 a 66.5 18 0 0 0 133 0 a 66.5 18 0 0 0 -133 0"/>
+			</g>
+		</g>
+	</g>
+
+<!-- My Sign-->
+<g>
+
+	<text x="100" y="170" font-size="0.7em" fill="#6c470f">
+		<textPath xlink:href="#sign_text_path">Zádori Ádám</textPath>
+	</text>
+</g>
+
+
+</svg>
+</body>
+</html>
