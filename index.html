@@ -339,7 +339,7 @@ svg { display: block; position: absolute; top:0; left:0; width:100%; height:100%
 			<tspan x="255" y="-110" text-anchor="middle">description!</tspan>
 		</text>
 		<g id="tea_green" role="listitem">
-			<a id="tea_green_leaf_anchor" xlink:href="#green" role="link" tabindex="0">
+			<a id="tea_green_leaf_anchor" xlink:href="#green" role="link" tabindex="0" aria-describedby="tea_green_description_text">
 				<g id="tea_green_leaf" fill="#6b8e23" stroke="#007700" transform="scale(1.5 1.5) translate(35 12.5)" >	
 					<path stroke="inherit" fill="inherit" d="M -75 -125 c 10 -10 20 0 30 -5 s 20 -15 25 -15 c -25 -15 -45 -15 -55 20" />
 					<path stroke="black" stroke-width="0.5" stroke-opacity=".25" fill="none" d="M -75 -125 c 10 -20 35 -25 55 -20" />
@@ -349,7 +349,7 @@ svg { display: block; position: absolute; top:0; left:0; width:100%; height:100%
 				<use x="0" y="0" xlink:href="#tea_description" fill="inherit" opacity="inherit"/>
 				<text id="tea_green_description_text" x="-225" y="75" style="font-size: 0.75em; font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;">
 					<tspan x="-120" y="60" text-anchor="middle">
-						<tspan fill="brown">Green tea </tspan> is
+						<tspan fill="brown">Green tea </tspan>is
 					</tspan>
 					<tspan x="-120" y="75" fill="green" text-anchor="middle">one of the healthiest</tspan>
 					<tspan x="-120" y="90" text-anchor="middle"> beverages on the planet.</tspan>
@@ -366,7 +366,7 @@ svg { display: block; position: absolute; top:0; left:0; width:100%; height:100%
 			</g>
 		</g>
 		<g id="tea_black" role="listitem">
-			<a id="tea_black_leaf_anchor" xlink:href="#black" role="link" tabindex="0">
+			<a id="tea_black_leaf_anchor" xlink:href="#black" role="link" tabindex="0" aria-describedby="tea_black_description_text">
 				<g id="tea_black_leaf" fill="#645f63" stroke="#333333" transform="scale(1.5 1.5) translate(122.5 12.5)" >	
 					<path stroke="inherit" fill="inherit" d="M -75 -125 c 10 -10 20 0 30 -5 s 20 -15 25 -15 c -25 -15 -45 -15 -55 20" />
 					<path stroke="black" stroke-width="0.5" stroke-opacity=".25" fill="none" d="M -75 -125 c 10 -20 35 -25 55 -20" />
@@ -394,7 +394,7 @@ svg { display: block; position: absolute; top:0; left:0; width:100%; height:100%
 			</g>
 		</g>
 		<g id="tea_puerh" role="listitem">
-			<a id="tea_puerh_leaf_anchor" xlink:href="#puerh" role="link" tabindex="0">
+			<a id="tea_puerh_leaf_anchor" xlink:href="#puerh" role="link" tabindex="0" aria-describedby="tea_puerh_description_text">
 				<g id="tea_puerh_leaf" fill="#753a10" stroke="#996515" transform="scale(1.5 1.5) translate(210 12.5)" >	
 					<path stroke="inherit" fill="inherit" d="M -75 -125 c 10 -10 20 0 30 -5 s 20 -15 25 -15 c -25 -15 -45 -15 -55 20" />
 					<path stroke="black" stroke-width="0.5" stroke-opacity=".25" fill="none" d="M -75 -125 c 10 -20 35 -25 55 -20" />
@@ -427,8 +427,7 @@ svg { display: block; position: absolute; top:0; left:0; width:100%; height:100%
 		</g>
 	</g>
 <g>
-<text x="100" y="170" font-size="0.7em" fill="#6c470f">
-	<textPath xlink:href="#sign_text_path">Zádori Ádám</textPath>
+<text x="100" y="170" font-size="0.7em" fill="#6c470f" transform="rotate(-15) translate(-30 25)"> Z. Á.</textPath>
 </text>
 </g>
 </svg>
